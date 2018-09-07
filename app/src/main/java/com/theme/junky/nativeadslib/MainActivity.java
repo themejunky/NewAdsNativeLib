@@ -26,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         ManagerNative managerNative = new ManagerNative(this);
         managerNative.setNameLog("TestNativeLog");
-       // managerNative.iniNativeAppnext("66f95906-de1e-4643-b953-b8bd30524882",true);
-       // managerNative.initNativeAdmob("ca-app-pub-8562466601970101/9984599253",true);
-        managerNative.iniNativeFacebook(" ",true);
 
-
+        //managerNative.initNativeAdmob("ca-app-pub-8562466601970101/9984599253",true);
+        //managerNative.iniNativeAppnext("099d058a-6ec5-49bc-a3ec-98caf88a6692",true);
+        managerNative.iniNativeFacebook("833164856890775_838240766383184",true);
+        //adsManager.initFacebookNativeAds(containerFacebook, "833164856890775_838240766383184");
+        //adsManager.initFacebookNativeAds(containerFacebook, "263700057716193_263734114379454");
+        //adsManager.initFacebookNativeAds(containerFacebook, "467576940317585_467577570317522");
+        managerNative.showAds(flow,containerAds);
     }
 
 

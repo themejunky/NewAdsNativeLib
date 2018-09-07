@@ -2,12 +2,10 @@ package com.mynativelib.nativeAds;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.ads.Ad;
@@ -18,24 +16,24 @@ import com.facebook.ads.AdSettings;
 import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdListener;
+import com.mynativelib.R;
 import com.mynativelib.manager.AdsListenerManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import themejunky.module_adsmanager.R;
-import themejunky.module_adsmanager.utils.AdsListenerManager;
 
-public class FacebookNativeAds extends NativeBase {
+
+public class FacebookNativeAds2 extends NativeBase {
     private static final String TAG = "InfoAds" ;
-    private static FacebookNativeAds instance = null;
+    private static FacebookNativeAds2 instance = null;
     private AdsListenerManager.NativeListener nativeListener;
     private AdsListenerManager.ListenerLogs listenerLogs;
     public NativeAd nativeAd;
     private LinearLayout nativeAdContainer;
     private LinearLayout adView;
 
-    public FacebookNativeAds(Context context, String keyFacebook, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener){
+    public FacebookNativeAds2(Context context, String keyFacebook, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener){
         nContext = context;
         this.listenerLogs = listenerLogs;
         this.nativeListener = nativeListener;
@@ -48,19 +46,20 @@ public class FacebookNativeAds extends NativeBase {
     //public void initFacebookNative(final View view, String keynativeFacebook, final Context activity){
     public void initFacebookNative(String keyFacebook, final Context context){
         nativeAd = new NativeAd(context, keyFacebook);
+        listenerLogs.logs("Facebook Native: init " );
         AdSettings.addTestDevice("af893730-8d04-4ed6-8d88-6782fbd56306");
         nativeAd.setAdListener(new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
                 // Native ad finished downloading all assets
-                Log.e(TAG, "Native ad finished downloading all assets.");
+                listenerLogs.logs("Facebook Native:  onMediaDownloaded " );
                 //inflateAd(view, nativeAd, activity);
             }
 
             @Override
             public void onError(Ad ad, AdError adError) {
                 // Native ad failed to load
-                Log.e(TAG, "Native ad failed to load: " + adError.getErrorMessage());
+                listenerLogs.logs("Facebook Native:  failed to load: " + adError.getErrorMessage());
             }
 
             @Override
@@ -97,14 +96,13 @@ public class FacebookNativeAds extends NativeBase {
     private void inflateAd(NativeAd nativeAd, Context context) {
         nativeAd.unregisterView();
 
-        LayoutInflater inflate1 = LayoutInflater.from(context);
-        mAdView = inflate1.inflate(R.layout.container_facebook_ads, null);
-        nativeAdContainer = mAdView.findViewById(R.id.native_ad_container);
-        nativeAdContainer.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
-        nativeAdContainer.setGravity(Gravity.BOTTOM);
+        mAdView = mInflateLayout(R.layout.native_ad_layout_1);
+        nativeAdContainer = mAdView.findViewById(R.id.nContainer);
 
-        LayoutInflater inflate2 = LayoutInflater.from(context);
-        adView = (LinearLayout) inflate2.inflate(R.layout.native_ad_layout_1, nativeAdContainer, false);
+        nativeAdContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        adView = (LinearLayout) inflater.inflate(R.layout.native_ad_layout_1, nativeAdContainer, false);
         nativeAdContainer.addView(adView);
 
         // Add the AdChoices icon
@@ -150,9 +148,9 @@ public class FacebookNativeAds extends NativeBase {
 
 
 
-    public static FacebookNativeAds getmInstance(Context activity,String keyFacebook, AdsListenerManager.ListenerLogs listenerLogs,AdsListenerManager.NativeListener nativeListener) {
+    public static FacebookNativeAds2 getmInstance(Context activity, String keyFacebook, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener) {
         if(instance == null) {
-            instance = new FacebookNativeAds(activity,keyFacebook,listenerLogs,nativeListener);
+            instance = new FacebookNativeAds2(activity,keyFacebook,listenerLogs,nativeListener);
         }
         return instance;
     }

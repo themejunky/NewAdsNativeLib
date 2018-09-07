@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.mynativelib.nativeAds.AdmobNativeAds;
 import com.mynativelib.nativeAds.AppnextNativeAds;
-import com.mynativelib.nativeAds.FacebookNativeAds;
+import com.mynativelib.nativeAds.FacebookNativeAds2;
 
 import java.util.Calendar;
 import java.util.List;
@@ -21,7 +21,7 @@ public class ManagerNative extends ManagerBase {
     protected Context mContext;
     private AdmobNativeAds admobNativeAds;
     private AppnextNativeAds appnextNativeAds;
-    private FacebookNativeAds facebookNativeAds;
+    private FacebookNativeAds2 facebookNativeAds;
     private static ManagerNative instance = null;
 
     private View mChoosenAd = null;
@@ -51,9 +51,9 @@ public class ManagerNative extends ManagerBase {
 
     public void iniNativeFacebook(String keyFacebook,boolean newInstance) {
         if (newInstance) {
-            facebookNativeAds = new FacebookNativeAds(mContext, keyFacebook, this, this);
+            facebookNativeAds = new FacebookNativeAds2(mContext, keyFacebook, this, this);
         } else {
-            facebookNativeAds = FacebookNativeAds.getmInstance(mContext, keyFacebook, this, this);
+            facebookNativeAds = FacebookNativeAds2.getmInstance(mContext, keyFacebook, this, this);
         }
 
     }
@@ -86,15 +86,15 @@ public class ManagerNative extends ManagerBase {
                      runAdds_Part2Native_Test();
                 }
             } else if (addsFlowNative.get(next).equals(ConstantsAds.FACEBOOK)) {
-                Log.d(nameLogs, "FacebookNativeAds: 1" );
+                Log.d(nameLogs, "FacebookNativeAds2: 1" );
                 if (facebookNativeAds != null && facebookNativeAds.getViewNativeAd() != null) {
-                    Log.d(nameLogs, "FacebookNativeAds: 2" );
+                    Log.d(nameLogs, "FacebookNativeAds2: 2" );
                     wasShown = true;
                     mChoosenAd = facebookNativeAds.getViewNativeAd();
-                    Log.d(nameLogs, "FacebookNativeAds: 3" );
+                    Log.d(nameLogs, "FacebookNativeAds2: 3" );
                 }
                 else {
-                    Log.d(nameLogs, "FacebookNativeAds: 4" );
+                    Log.d(nameLogs, "FacebookNativeAds2: 4" );
                     runAdds_Part2Native_Test();
                 }
             }
