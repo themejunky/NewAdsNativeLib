@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NewAdsNativeLib.iml" filepath="$PROJECT_DIR$/NewAdsNativeLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NewAdsNativeLib.iml" filepath="$PROJECT_DIR$/.idea/NewAdsNativeLib.iml" />
+      <module fileurl="file://C:\Users\Zboing\AndroidStudioProjects\NewAdsNativeLib\NewAdsNativeLib.iml" filepath="C:\Users\Zboing\AndroidStudioProjects\NewAdsNativeLib\NewAdsNativeLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Zboing\AndroidStudioProjects\NewAdsNativeLib\app\app.iml" filepath="C:\Users\Zboing\AndroidStudioProjects\NewAdsNativeLib\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mynativelib/mynativelib.iml" filepath="$PROJECT_DIR$/mynativelib/mynativelib.iml" />
+      <module fileurl="file://C:\Users\Zboing\AndroidStudioProjects\NewAdsNativeLib\mynativelib\mynativelib.iml" filepath="C:\Users\Zboing\AndroidStudioProjects\NewAdsNativeLib\mynativelib\mynativelib.iml" />
     </modules>
   </component>
 </project>

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.mynativelib.nativeAds.AdmobNativeAds;
 import com.mynativelib.nativeAds.AppnextNativeAds;
-import com.mynativelib.nativeAds.FacebookNativeAds2;
 
 import java.util.Calendar;
 import java.util.List;
