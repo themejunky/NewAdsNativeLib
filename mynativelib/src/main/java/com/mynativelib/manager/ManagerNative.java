@@ -8,19 +8,16 @@ import android.view.ViewGroup;
 
 import com.mynativelib.nativeAds.AdmobNativeAds;
 import com.mynativelib.nativeAds.AppnextNativeAds;
+import com.mynativelib.nativeAds.FacebookNativeAds;
 
 import java.util.Calendar;
 import java.util.List;
 
-
-
-
 public class ManagerNative extends ManagerBase {
-
     protected Context mContext;
     private AdmobNativeAds admobNativeAds;
     private AppnextNativeAds appnextNativeAds;
-    private FacebookNativeAds2 facebookNativeAds;
+    private FacebookNativeAds facebookNativeAds;
     private static ManagerNative instance = null;
 
     private View mChoosenAd = null;
@@ -50,9 +47,9 @@ public class ManagerNative extends ManagerBase {
 
     public void iniNativeFacebook(String keyFacebook,boolean newInstance) {
         if (newInstance) {
-            facebookNativeAds = new FacebookNativeAds2(mContext, keyFacebook, this, this);
+            facebookNativeAds = new FacebookNativeAds(mContext, keyFacebook, this, this);
         } else {
-            facebookNativeAds = FacebookNativeAds2.getmInstance(mContext, keyFacebook, this, this);
+            facebookNativeAds = FacebookNativeAds.getmInstance(mContext, keyFacebook, this, this);
         }
 
     }
@@ -82,7 +79,7 @@ public class ManagerNative extends ManagerBase {
                     Log.d(nameLogs, "AppnextNativeAds: 3" );
                 } else {
                     Log.d(nameLogs, "AppnextNativeAds: 4" );
-                     runAdds_Part2Native_Test();
+                    runAdds_Part2Native_Test();
                 }
             } else if (addsFlowNative.get(next).equals(ConstantsAds.FACEBOOK)) {
                 Log.d(nameLogs, "FacebookNativeAds2: 1" );
@@ -152,9 +149,9 @@ public class ManagerNative extends ManagerBase {
     }
 
 
- public void setNameLog(String logName){
-     nameLogs = logName;
- }
+    public void setNameLog(String logName){
+        nameLogs = logName;
+    }
 
 
 }

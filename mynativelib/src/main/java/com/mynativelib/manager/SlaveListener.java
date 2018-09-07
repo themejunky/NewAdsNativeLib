@@ -9,8 +9,5 @@ public  class SlaveListener implements AdsListenerManager.NativeListener, AdsLis
     public void logs(String logs) {}
 
     @Override
-    public void isClosedInterAds() {}
-
-    @Override
     public void nativeLoaded() {}
 }

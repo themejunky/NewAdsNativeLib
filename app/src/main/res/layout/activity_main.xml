@@ -5,8 +5,9 @@
 
 
     <RelativeLayout
+        android:layout_alignParentBottom="true"
         android:id="@+id/containerAds"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="230dp"/>
 
 </RelativeLayout>

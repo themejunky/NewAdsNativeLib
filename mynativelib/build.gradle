@@ -30,10 +30,10 @@ dependencies {
     //AppNext
     implementation "com.appnext.sdk:native-ads2:2.4.2.472"
     implementation 'com.appnext.sdk:core:2.4.2.472'
-    implementation 'com.google.android.gms:play-services-ads:15.0.1' // Mandatory
-    implementation 'com.google.android.gms:play-services-location:15.0.1' // Mandatory
     //Admob
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1' // Mandatory
+    implementation 'com.google.android.gms:play-services-location:15.0.1' // Mandatory
     //Facebook
     implementation 'com.facebook.android:audience-network-sdk:4.99.1'
 }

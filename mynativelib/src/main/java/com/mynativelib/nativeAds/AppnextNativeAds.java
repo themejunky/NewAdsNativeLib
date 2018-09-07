@@ -20,12 +20,6 @@ import com.mynativelib.manager.AdsListenerManager;
 
 import java.util.ArrayList;
 
-
-
-/**
- * Created by Junky2 on 12/11/2017.
- */
-
 public class AppnextNativeAds extends NativeBase {
     public static AppnextNativeAds instance = null;
     private AdsListenerManager.NativeListener nativeListener;
@@ -79,8 +73,10 @@ public class AppnextNativeAds extends NativeBase {
                 nativeAd.setNativeAdView(nativeAdView);
                 isAppnextNativeLoaded = true;
 
-                if(listenerAds!=null) listenerAds.loadedNativeAds("appnext");
-                listenerLogs.logs("Appnex Native: Loaded");
+                if(listenerAds!=null) {
+                    listenerAds.loadedNativeAds("appnext");
+                    listenerLogs.logs("Appnex Native: Loaded");
+                }
             }
 
             @Override

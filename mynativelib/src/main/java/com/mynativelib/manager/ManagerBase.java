@@ -14,7 +14,7 @@ public class ManagerBase extends SlaveListener {
     protected int next;
     protected static List<String> addsFlowNative = new ArrayList<>();
     protected static List<String> addsFlowInterstitial = new ArrayList<>();
-    public static String nameLogs="debugTest";
+    public static String nameLogs="InfoNativeAds";
     public static String nAction="testAction";
     protected View containerNativeView;
     protected static AdsListenerManager.ListenerAds listenerAds ;

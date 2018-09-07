@@ -24,11 +24,6 @@ import com.mynativelib.manager.AdsListenerManager;
 
 import java.util.List;
 
-
-/**
- * Created by Junky2 on 9/26/2017.
- */
-
 public class AdmobNativeAds extends NativeBase {
     private static AdmobNativeAds instance = null;
     private  AdsListenerManager.NativeListener nativeListener;
@@ -65,7 +60,7 @@ public class AdmobNativeAds extends NativeBase {
                         Log.d("Tesada","onContentAdLoaded");
 
                         NativeContentAdView adView = (NativeContentAdView) inflater
-                                .inflate(R.layout.ad_content, null);
+                                .inflate(R.layout.ad_content_admob, null);
                         populateContentAdView(contentAd, adView);
                         mAdView = adView;
 

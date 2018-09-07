@@ -18,17 +18,16 @@ import com.facebook.ads.AdSettings;
 import com.facebook.ads.MediaView;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdListener;
+import com.mynativelib.R;
 import com.mynativelib.manager.AdsListenerManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import themejunky.module_adsmanager.R;
-import themejunky.module_adsmanager.utils.AdsListenerManager;
 
 public class FacebookNativeAds extends NativeBase {
-    private static final String TAG = "InfoAds" ;
     private static FacebookNativeAds instance = null;
+    private static final String TAG = "InfoNativeAds" ;
     private AdsListenerManager.NativeListener nativeListener;
     private AdsListenerManager.ListenerLogs listenerLogs;
     public NativeAd nativeAd;
@@ -39,16 +38,12 @@ public class FacebookNativeAds extends NativeBase {
         nContext = context;
         this.listenerLogs = listenerLogs;
         this.nativeListener = nativeListener;
-        //AdSettings.addTestDevice("DDEDEA49939260C29B6F6F7B48C9BFF4");
-        AdSettings.addTestDevice("0b6d426f86e3d921cb483a300febbc76");
-        //init(keyFacebook);
         initFacebookNative(keyFacebook, context);
     }
 
-    //public void initFacebookNative(final View view, String keynativeFacebook, final Context activity){
     public void initFacebookNative(String keyFacebook, final Context context){
         nativeAd = new NativeAd(context, keyFacebook);
-        AdSettings.addTestDevice("af893730-8d04-4ed6-8d88-6782fbd56306");
+        AdSettings.addTestDevice("1d0ae5c0-3af6-43bc-b936-436cf5e786ac");
         nativeAd.setAdListener(new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -69,10 +64,12 @@ public class FacebookNativeAds extends NativeBase {
                     return;
                 }
                 // Inflate Native Ad into Container
-                listenerAds.loadedNativeAds("facebook");
-                listenerLogs.logs("Facebook Native: onAdLoaded");
+                listenerLogs.logs("Facebook Native: onAdLoaded ");
+                if(listenerAds!=null) {
+                    listenerAds.loadedNativeAds("facebook");
+                    // Native ad is loaded and ready to be displayed
+                }
                 inflateAd(nativeAd, context);
-                // Native ad is loaded and ready to be displayed
             }
 
             @Override
