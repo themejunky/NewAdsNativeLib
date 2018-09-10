@@ -41,6 +41,13 @@ public class AppnextNativeAds extends NativeBase {
         init(idUnitAppnext);
     }
 
+    public static synchronized AppnextNativeAds getInstance(Context activity,String idUnitAppnext, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener){
+        if (instance==null){
+            instance = new AppnextNativeAds(activity,idUnitAppnext,listenerLogs,nativeListener);
+        }
+        return instance;
+    }
+
     private void init(String idUnitAppnext) {
         Log.d("testing","step 0 ");
         Appnext.init(nContext);
@@ -73,8 +80,8 @@ public class AppnextNativeAds extends NativeBase {
                 nativeAd.setNativeAdView(nativeAdView);
                 isAppnextNativeLoaded = true;
 
-                if(listenerAds!=null) {
-                    listenerAds.loadedNativeAds("appnext");
+                if(nativeListener!=null) {
+                    nativeListener.loadedNativeAds("appnext");
                     listenerLogs.logs("Appnex Native: Loaded");
                 }
             }
@@ -121,14 +128,6 @@ public class AppnextNativeAds extends NativeBase {
         viewArrayList = new ArrayList<>();
         viewArrayList.add(button);
         viewArrayList.add(mediaView);
-    }
-
-
-    public static synchronized AppnextNativeAds getInstance(Context activity,String idUnitAppnext, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener){
-        if (instance==null){
-            instance = new AppnextNativeAds(activity,idUnitAppnext,listenerLogs,nativeListener);
-        }
-        return instance;
     }
 
 }

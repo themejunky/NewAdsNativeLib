@@ -9,12 +9,13 @@ public interface AdsListenerManager {
         void logs(String logs);
     }
 
+    /*
     interface ListenerAds {
         void loadedNativeAds(String type);
     }
-
+*/
     interface NativeListener {
-        void nativeLoaded();
+        void loadedNativeAds(String type);
     }
 
 

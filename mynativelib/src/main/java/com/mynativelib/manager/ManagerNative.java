@@ -24,6 +24,7 @@ public class ManagerNative extends ManagerBase {
 
     private boolean wasShown = false;
     public ViewGroup nContainer;
+    private AdsListenerManager.NativeListener listenerNative;
 
     public ManagerNative(Context nContext) {
         this.mContext = nContext;
@@ -31,27 +32,31 @@ public class ManagerNative extends ManagerBase {
 
     public void initNativeAdmob(String keyAdmob,boolean newInstance) {
         if (newInstance) {
-            admobNativeAds = new AdmobNativeAds(mContext, keyAdmob, this, this);
+            admobNativeAds = new AdmobNativeAds(mContext, keyAdmob, this, listenerNative);
         } else {
-            admobNativeAds = AdmobNativeAds.getInstance(mContext, keyAdmob, this, this);
+            admobNativeAds = AdmobNativeAds.getInstance(mContext, keyAdmob, this, listenerNative);
         }
     }
 
     public void iniNativeAppnext( String keyAppnext, boolean newInstance) {
         if (newInstance) {
-            appnextNativeAds = new AppnextNativeAds(mContext, keyAppnext, this, this);
+            appnextNativeAds = new AppnextNativeAds(mContext, keyAppnext, this, listenerNative);
         } else {
-            appnextNativeAds = AppnextNativeAds.getInstance(mContext, keyAppnext, this, this);
+            appnextNativeAds = AppnextNativeAds.getInstance(mContext, keyAppnext, this, listenerNative);
         }
     }
 
     public void iniNativeFacebook(String keyFacebook,boolean newInstance) {
         if (newInstance) {
-            facebookNativeAds = new FacebookNativeAds(mContext, keyFacebook, this, this);
+            facebookNativeAds = new FacebookNativeAds(mContext, keyFacebook, this, listenerNative);
         } else {
-            facebookNativeAds = FacebookNativeAds.getmInstance(mContext, keyFacebook, this, this);
+            facebookNativeAds = FacebookNativeAds.getmInstance(mContext, keyFacebook, this, listenerNative);
         }
 
+    }
+
+    public void setListener(AdsListenerManager.NativeListener listenerNative){
+        this.listenerNative = listenerNative;
     }
 
     private synchronized void runAdds_Part2Native_Test() {

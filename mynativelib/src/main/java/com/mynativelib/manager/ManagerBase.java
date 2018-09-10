@@ -13,11 +13,10 @@ import java.util.List;
 public class ManagerBase extends SlaveListener {
     protected int next;
     protected static List<String> addsFlowNative = new ArrayList<>();
-    protected static List<String> addsFlowInterstitial = new ArrayList<>();
     public static String nameLogs="InfoNativeAds";
     public static String nAction="testAction";
     protected View containerNativeView;
-    protected static AdsListenerManager.ListenerAds listenerAds ;
+    protected  static AdsListenerManager.NativeListener nativeListener;
     protected static boolean isReloaded;
 
 
@@ -25,14 +24,9 @@ public class ManagerBase extends SlaveListener {
         void mGoBackFromDisplay();
     }
 
-
-
-
     @Override
     public void logs(String logs) {
         Log.d(nameLogs, logs);
-
     }
-
 
 }

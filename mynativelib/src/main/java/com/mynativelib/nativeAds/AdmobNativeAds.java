@@ -26,22 +26,21 @@ import java.util.List;
 
 public class AdmobNativeAds extends NativeBase {
     private static AdmobNativeAds instance = null;
-    private  AdsListenerManager.NativeListener nativeListener;
+    private AdsListenerManager.NativeListener nativeListener;
     private AdsListenerManager.ListenerLogs listenerLogs;
     private AdLoader adLoader;
     private boolean isLoaded;
 
-    public AdmobNativeAds(Context context, String key, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener listenerNativeAds) {
+    public AdmobNativeAds(Context context, String key, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener) {
         nContext = context;
-        this.nativeListener = listenerNativeAds;
         this.listenerLogs = listenerLogs;
+        this.nativeListener = nativeListener;
         initAdmobNativeAdvance(key);
     }
 
-
-    public static synchronized AdmobNativeAds getInstance(Context context, String key, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener listenerNativeAds){
+    public static synchronized AdmobNativeAds getInstance(Context context, String key, AdsListenerManager.ListenerLogs listenerLogs, AdsListenerManager.NativeListener nativeListener){
         if(instance==null){
-            return new AdmobNativeAds(context,key,listenerLogs,listenerNativeAds);
+            return new AdmobNativeAds(context,key,listenerLogs,nativeListener);
         }else {
             return instance;
         }
@@ -136,6 +135,7 @@ public class AdmobNativeAds extends NativeBase {
 
         if(adView.getHeadlineView()!=null){
             isLoaded=true;
+            nativeListener.loadedNativeAds("admob");
             listenerLogs.logs("admob");
         }
 
@@ -201,6 +201,7 @@ public class AdmobNativeAds extends NativeBase {
         //((TextView) adView.getAdvertiserView()).setText(nativeContentAd.getAdvertiser());
         if(adView.getHeadlineView()!=null){
             isLoaded=true;
+            nativeListener.loadedNativeAds("admob");
             listenerLogs.logs("admob");
         }
 

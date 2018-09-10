@@ -41,6 +41,13 @@ public class FacebookNativeAds extends NativeBase {
         initFacebookNative(keyFacebook, context);
     }
 
+    public static FacebookNativeAds getmInstance(Context activity,String keyFacebook, AdsListenerManager.ListenerLogs listenerLogs,AdsListenerManager.NativeListener nativeListener) {
+        if(instance == null) {
+            instance = new FacebookNativeAds(activity,keyFacebook,listenerLogs,nativeListener);
+        }
+        return instance;
+    }
+
     public void initFacebookNative(String keyFacebook, final Context context){
         nativeAd = new NativeAd(context, keyFacebook);
         AdSettings.addTestDevice("1d0ae5c0-3af6-43bc-b936-436cf5e786ac");
@@ -65,8 +72,8 @@ public class FacebookNativeAds extends NativeBase {
                 }
                 // Inflate Native Ad into Container
                 listenerLogs.logs("Facebook Native: onAdLoaded ");
-                if(listenerAds!=null) {
-                    listenerAds.loadedNativeAds("facebook");
+                if(nativeListener!=null) {
+                    nativeListener.loadedNativeAds("facebook");
                     // Native ad is loaded and ready to be displayed
                 }
                 inflateAd(nativeAd, context);
@@ -145,12 +152,4 @@ public class FacebookNativeAds extends NativeBase {
         nativeAd.destroy();
     }
 
-
-
-    public static FacebookNativeAds getmInstance(Context activity,String keyFacebook, AdsListenerManager.ListenerLogs listenerLogs,AdsListenerManager.NativeListener nativeListener) {
-        if(instance == null) {
-            instance = new FacebookNativeAds(activity,keyFacebook,listenerLogs,nativeListener);
-        }
-        return instance;
-    }
 }

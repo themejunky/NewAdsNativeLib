@@ -16,8 +16,9 @@ import java.util.List;
  * Created by Alin on 9/6/2018.
  */
 
-public class MainActivity extends AppCompatActivity implements AdsListenerManager.ListenerAds {
+public class MainActivity extends AppCompatActivity implements AdsListenerManager.NativeListener {
     List<String>flow = Arrays.asList("admob","appnext","facebook");
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements AdsListenerManage
 
         ManagerNative managerNative = new ManagerNative(this);
         managerNative.setNameLog("InfoNativeAds");
+        managerNative.setListener(this);
 
         managerNative.initNativeAdmob("ca-app-pub-8562466601970101/9984599253",true);
         //managerNative.iniNativeAppnext("099d058a-6ec5-49bc-a3ec-98caf88a6692",true);
