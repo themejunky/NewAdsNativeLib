@@ -13,12 +13,12 @@ import com.mynativelib.nativeAds.FacebookNativeAds;
 import java.util.Calendar;
 import java.util.List;
 
-public class ManagerNative extends ManagerBase {
+public class ManagerNativeAds extends ManagerBase {
     protected Context mContext;
     private AdmobNativeAds admobNativeAds;
     private AppnextNativeAds appnextNativeAds;
     private FacebookNativeAds facebookNativeAds;
-    private static ManagerNative instance = null;
+    private static ManagerNativeAds instance = null;
 
     private View mChoosenAd = null;
 
@@ -26,7 +26,7 @@ public class ManagerNative extends ManagerBase {
     public ViewGroup nContainer;
     private AdsListenerManager.NativeListener listenerNative;
 
-    public ManagerNative(Context nContext) {
+    public ManagerNativeAds(Context nContext) {
         this.mContext = nContext;
     }
 

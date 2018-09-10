@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.RelativeLayout;
 
 import com.mynativelib.manager.AdsListenerManager;
-import com.mynativelib.manager.ManagerNative;
+import com.mynativelib.manager.ManagerNativeAds;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity implements AdsListenerManage
 
         RelativeLayout containerAds = findViewById(R.id.containerAds);
 
-        ManagerNative managerNative = new ManagerNative(this);
-        managerNative.setNameLog("InfoNativeAds");
-        managerNative.setListener(this);
+        ManagerNativeAds managerNativeAds = new ManagerNativeAds(this);
+        managerNativeAds.setNameLog("InfoNativeAds");
+        managerNativeAds.setListener(this);
 
-        managerNative.initNativeAdmob("ca-app-pub-8562466601970101/9984599253",true);
-        //managerNative.iniNativeAppnext("099d058a-6ec5-49bc-a3ec-98caf88a6692",true);
-        //managerNative.iniNativeFacebook("833164856890775_838240766383184",true);
-        managerNative.showAds(flow,containerAds);
+        managerNativeAds.initNativeAdmob("ca-app-pub-8562466601970101/9984599253",true);
+        //managerNativeAds.iniNativeAppnext("099d058a-6ec5-49bc-a3ec-98caf88a6692",true);
+        //managerNativeAds.iniNativeFacebook("833164856890775_838240766383184",true);
+        managerNativeAds.showAds(flow,containerAds);
     }
 
 
