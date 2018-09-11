@@ -38,7 +38,7 @@ public class ManagerNativeAds extends ManagerBase {
         }
     }
 
-    public void iniNativeAppnext( String keyAppnext, boolean newInstance) {
+    public void initNativeAppnext( String keyAppnext, boolean newInstance) {
         if (newInstance) {
             appnextNativeAds = new AppnextNativeAds(mContext, keyAppnext, this, listenerNative);
         } else {
@@ -46,7 +46,7 @@ public class ManagerNativeAds extends ManagerBase {
         }
     }
 
-    public void iniNativeFacebook(String keyFacebook,boolean newInstance) {
+    public void initNativeFacebook(String keyFacebook,boolean newInstance) {
         if (newInstance) {
             facebookNativeAds = new FacebookNativeAds(mContext, keyFacebook, this, listenerNative);
         } else {
